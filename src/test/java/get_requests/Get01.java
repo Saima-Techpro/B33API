@@ -23,8 +23,6 @@ public class Get01 {
                Provide the information that you want to send (in POST, PUT , or PATCH requests)
             3. Send the request and get the response
             4. Make Assertions
-
-
       */
 
     @Test
@@ -36,7 +34,7 @@ public class Get01 {
 //        3. Send the request and get the response
 
         Response response = given().when().get(url);
-        response.print();        // Prints the response body in a single
+        response.print();        // Prints the response body in a single line
         response.prettyPrint();  // Prints the response body in a JSON format
 
         System.out.println("Status Code = " + response.statusCode());

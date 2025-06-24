@@ -52,7 +52,9 @@ public class Get02 {
                 then().
                 statusCode(200).
                 contentType("application/json").
-                statusLine("HTTP/1.1 200 OK");
+                statusLine("HTTP/1.1 200 OK").
+                log().
+                body();
 
     }
 }
