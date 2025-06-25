@@ -5,7 +5,9 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 
-public class PetStoreBaseUrl {
+import static utilities.AuthorizeContactListApi.generateToken;
+
+public class ContactListBaseUrl {
 
     /*
     The purpose of this class is to increase the maintainability of tests by configuring the
@@ -17,7 +19,7 @@ public class PetStoreBaseUrl {
     @Before
     public void setUp(){
         spec = new RequestSpecBuilder().
-                setBaseUri("https://petstore.swagger.io/v2").
+                setBaseUri("https://thinking-tester-contact-list.herokuapp.com").addHeader("Authorization", generateToken()).
                 setContentType(ContentType.JSON).
                 build();
     }

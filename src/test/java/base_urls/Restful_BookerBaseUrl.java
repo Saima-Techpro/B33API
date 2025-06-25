@@ -5,7 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 
-public class PetStoreBaseUrl {
+public class Restful_BookerBaseUrl {
 
     /*
     The purpose of this class is to increase the maintainability of tests by configuring the
@@ -17,7 +17,7 @@ public class PetStoreBaseUrl {
     @Before
     public void setUp(){
         spec = new RequestSpecBuilder().
-                setBaseUri("https://petstore.swagger.io/v2").
+                setBaseUri("https://restful-booker.herokuapp.com").
                 setContentType(ContentType.JSON).
                 build();
     }

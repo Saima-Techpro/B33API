@@ -62,6 +62,8 @@ public class Get06 extends PetStoreBaseUrl {
                 body("[0].tags[0].id", equalTo(0));
 
     }
+
+
     @Test
     public void test02(){
         // 1. Set the URL
@@ -86,6 +88,8 @@ public class Get06 extends PetStoreBaseUrl {
                         "[0].category.id", equalTo(0),
                         "[0].photoUrls[0]", equalTo("string"),
                         "[0].tags[0].id", equalTo(0));
+
+        // NOTE: This assertion with single body() works the same way as SOFT ASSERTION works in TESTNG
 
     }
 
