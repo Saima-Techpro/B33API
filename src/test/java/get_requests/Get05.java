@@ -22,9 +22,7 @@ public class Get05 extends PetStoreBaseUrl {
     @Test
     public void test01(){
         // 1. Set the URL
-
         spec.pathParams("first", "pet", "second", 70);
-
 
         // 2. Set the payload / expected data
         // 3. Send the request and get the response
