@@ -1,0 +1,78 @@
+***************** Serialization  - Deserialization *****************
+Serialization:
+The process of converting your object into a standard format like JSON or XML so it can be sent over the
+network is called serialization.
+
+Analogy: Packing the Gift
+Imagine you want to send a gift (e.g., a toy, book, or gadget) to your friend who lives in another city.
+
+The gift is your actual object or data (like a Java object etc.)
+But you can't just throw the gift into the courier truck — it needs to be packaged in a way that the courier can understand and deliver.
+
+So, you:
+    - Put it in a box,
+    - Add a label and address,
+    - Maybe even wrap it up in bubble / gift wrap.
+
+Deserialization:
+The process of taking the JSON/XML data and converting it back into a usable object in code is called deserialization.
+
+Analogy: Unpacking the Gift
+    - Now your friend receives the box.
+    - They open the package,
+    - Remove the bubble / gift wrap,
+    - And take out the actual gift (a toy or a book).
+
+**********  Why We Need It??
+
+Imagine two people trying to communicate, but one speaks English (your app) and the other speaks
+Binary or Internal Object Format (your server). They won't understand each other unless they speak a common language.
+Your Java/Python/JS objects cannot be directly sent over the internet — they need to be converted into a format that:
+
+    - is text-based,
+    - is language-neutral,
+    - can travel over HTTP,
+    - and can be understood by both sender and receiver.
+
+That format is usually JSON or XML.
+
+In short, serialization is the bridge that lets systems "speak the same language" and exchange data
+in a predictable, portable, and readable way.
+
+************* QUESTION *************
+We prepare payload in String and send as JSON through header setting content type to JSON....and it works fine...
+why do we need to use Jackson Binder to do serialisation then?
+
+************* ANSWER *************
+Yes, this works.
+But it comes with problems as your application grows.
+
+Analogy:
+Imagine you're writing an official document.
+    Manual: You handwrite every word, every time. Fine for one page. Nightmare for 100 pages.
+    Jackson: You use a document template and just plug in variables. Faster, safer, consistent.
+
+Jackson handles serialization/deserialization so that you don’t have to babysit every quote, comma, or field.
+It's especially essential when your models get bigger, your requests/responses become dynamic,
+and when you're reading/writing JSON reliably and at scale.
+
+Manual JSON String Approach:
+
+String json = "{\"id\":101,\"name\":\"Alex\"}";
+
+    - Quick and simple for small payloads
+    - Error-prone (missing commas, quotes, braces, etc.)
+    - No type safety – typo in keys will go unnoticed at compile-time
+    - Hard to manage if object has nested fields, lists, etc.
+    - Becomes painful to maintain as payloads grow
+
+Using Jackson - Object Mapper
+
+    User user = new User(101, "Alex");
+    DataType json = new ObjectMapper().writeValueAsDataType(user);
+
+    - Clean, readable, and type-safe
+    - Automatically handles nested structures, nulls, lists
+    - Easy to modify (just change the object)
+    - Converts both ways: object → JSON and JSON → object
+    - Avoids manual string building errors

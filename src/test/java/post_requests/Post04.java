@@ -1,21 +1,21 @@
 package post_requests;
 
 import base_urls.JsonPlaceholderBaseUrl;
-import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
 public class Post04 extends JsonPlaceholderBaseUrl {
 
-    /*
+
+
+
+    @Test
+    public void test01(){   /*
     Given
         https://jsonplaceholder.typicode.com/todos
 
@@ -37,27 +37,23 @@ public class Post04 extends JsonPlaceholderBaseUrl {
             "id":201
         }
      */
-
-
-    @Test
-    public void test01(){
         // 1. Set the URL
         spec.pathParam("param", "todos");
 
         // 2. Set the payload / expected data
-//        String payload = "{\n" +
-//                "    \"userId\": 55,\n" +
-//                "    \"title\": \"Tidy your room\",\n" +
-//                "    \"completed\": false\n" +
-//                "}";
+        String payload = "{\n" +
+                "    \"userId\": 55,\n" +
+                "    \"title\": \"Tidy your room\",\n" +
+                "    \"completed\": false\n" +
+                "}";
 
-        // System.out.println("payload = " + payload); The data type of this payload is STRING
+         System.out.println("payload = " + payload); //The data type of this payload is STRING
 
         Map<String, Object> payloadMap = new HashMap<>();
         payloadMap.put("userId" , 55);
         payloadMap.put("title", "Tidy your room");
         payloadMap.put("completed", false);
-        //System.out.println("payloadMap = " + payloadMap);
+        System.out.println("payloadMap = " + payloadMap);
 
 
         // 3. Send the request and get the response

@@ -4,12 +4,9 @@ import base_urls.JsonPlaceholderBaseUrl;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
-
 import java.util.List;
-
 import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class Get10 extends JsonPlaceholderBaseUrl {
      /*
@@ -31,7 +28,7 @@ public class Get10 extends JsonPlaceholderBaseUrl {
     And
         Print the titles of todos with IDs less than 5
     And
-        Verify that the title "delectus aut autem" belongs to a todo with ID less than 5.
+        Verify that the title "delectus aut autem" belongs to a todos with ID less than 5.
 
         HW- to add above assertions on POSTMAN Scripts for this GET request
       */
@@ -99,10 +96,6 @@ public class Get10 extends JsonPlaceholderBaseUrl {
         //assertEquals("delectus aut autem", titleList.getFirst());
 
     }
-
-
-
-
 
 
 }
